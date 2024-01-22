@@ -1,0 +1,22 @@
+
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=0"><meta http-equiv=pragma content=no-cache><meta http-equiv=expires content=-1><title>Pisowifi - Status</title><link rel=stylesheet href=style.css><script src=jquery.min.js></script><script src=config.js defer></script><script>var mac="66:99:7D:E8:A2:39",uIp="10.10.11.30",currentVoucher="66997DE8A239",interfaceName="vlan2",remainingTimer=null</script></head><body><div class=main><div class=logo>
+
+<div id="banner" class="banner"></div>
+<center><div style="border-top: 2px solid white;width: 250px;margin-bottom: 20px;"></div></center>
+
+<div class=info><b>IP: </B><span>10.10.11.30</span>  <b>MAC: </B><span>66:99:7D:E8:A2:39</span></div><div class=status><span><span class=blinking2>Connected</span></span></div></br><div id=box3 style="padding:0 20px 0 20px">
+    
+    <center>
+    <div style="color: white;">
+        <span>USERNAME</span><br>
+        <div class="element">66997DE8A239</div><br>
+        <span>REMAINING TIME</span><br>
+        <div class="element" id="remainTime"></div>
+    </div>
+    </center>
+
+    <br>
+        <center><button id=pauseBTN onclick="return pause(),!1">PAUSE</button></center></div><center>
+            </center></div><script>var sessiontime="4379",uptime="10021";function pause(){$.ajax({type:"POST",url:"/logout",data:"erase-cookie=true",success:function(e){location.reload()}})}function secondsToDhms(e){e=Number(e);var n=Math.floor(e/86400),o=Math.floor(e%86400/3600),i=Math.floor(e%3600/60),s=Math.floor(e%60);return(0<n?n+(1==n?" Day ":" Days "):"")+" "+(0<o?o+"":"0")+"h : "+(0<i?i+"":"0")+"m : "+(0<s?s+"":"0")+"s"}$(document).ready(function(){var e=sessiontime;"0"==e?$("#remainTime").html("Unlimited"):($("#remainTime").html(secondsToDhms(e)),remainingTimer=setInterval(function(){e--,$("#remainTime").html(secondsToDhms(e)),e<=0&&(clearInterval(remainingTimer),pause())},1e3))}),window.addEventListener("focus",function(){$.ajax({type:"GET",url:"/login",success:function(e,n,o){0<e.indexOf("IAMNOTLOGINSTRINGPLEASEDONTREMOVE")&&location.reload()}})})</script><div id=loaderDiv class="spinner hidden"><center><img src="loading.svg" alt=""></center></div>
+            </div>
+            <div><span class="footer">Powered by: WINTECH 4.2</span></div></body></html>
